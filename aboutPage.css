@@ -1,0 +1,29 @@
+body{
+	text-align: center;
+}
+
+li {
+
+	background-color:green;
+	float: left;
+	text-align:center;
+	list-style-type: none;
+}
+li ul {
+
+	display:inline-block;
+	}
+li a {
+	display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px ;
+}
+li a:hover {
+<<<<<<< HEAD
+    background-color: black;
+}
+=======
+    background-color: yellow;
+}
+>>>>>>> 3f4621b9cb7b12e9ebd6351a78bb3d9b7e7427f4

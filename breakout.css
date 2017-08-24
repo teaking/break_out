@@ -1,0 +1,145 @@
+<<<<<<< HEAD
+body {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+#myCanvas {
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  background-color:rgb(230, 224, 237);
+  /*background-image: url("background.jpg");*/
+}
+
+.box {
+  width: 20%;
+  margin: 0 auto;
+  background-color: yellow;
+  padding: 35px;
+  border: 2px solid "Red";
+}
+
+li {
+  background-color: green;
+  float: left;
+  text-align: center;
+}
+
+li ul {
+  display: inline-block;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 18px 17px;
+}
+
+li a:hover {
+  background-color: yellow;
+}
+
+#navigation {
+  text-align: center;
+}
+
+#navigation ul {
+  list-style-type: none;
+  display: inline-block;
+}
+
+#navifation li {
+  background: #ccc;
+  border-left: 1px solid #999;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+#navifation a {
+  color: #666;
+  font-weight: bold;
+  padding: 50px 50px;
+  text-decoration: none;
+}
+
+#navifation a:hover {
+  color: #008FCE;
+}
+=======
+#myCanvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background-image: url("background.jpg");
+}
+body{
+	 background-color: Black;
+	 color: white;
+	 text-align:center;
+}
+
+.box{
+	width: 20%;
+margin: 0 auto;
+background-color: yellow;
+padding: 35px;
+border: 2px solid "Red";
+
+}
+li {
+
+	background-color:green;
+	float: left;
+	text-align:center;
+}
+li ul {
+
+	display:inline-block;
+	}
+li a {
+	display: block;
+    color: black;
+    text-align: center;
+    padding: 18px 17px ;
+}
+li a:hover {
+    background-color: yellow;
+}
+
+#navigation{
+text-align: center;
+}
+
+#navigation ul {
+list-style-type: none;
+display: inline-block;
+}
+
+#navifation li {
+background: #ccc;
+border-left: 1px solid #999;
+float: left;
+margin: 0;
+padding: 0;
+}
+
+#navifation a {
+color: #666;
+font-weight: bold;
+padding:50px 50px;
+text-decoration: none;
+}
+
+#navifation a:hover {
+color: #008FCE;
+}
+>>>>>>> 3f4621b9cb7b12e9ebd6351a78bb3d9b7e7427f4
