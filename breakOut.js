@@ -1,4 +1,5 @@
-
+// TODO ball movement is in same direction make it a little bit different when it touches
+//different objects e.g. walls, bricks and paddle
 window.onload = function() {
   var canvas = document.getElementById("myCanvas");
   // height and width of the game will be full screen
@@ -51,6 +52,11 @@ window.onload = function() {
   var brickHeight = 50;
   var brickPadding = 10;
   var brickSidePadding = canvas.width/2 - 250 ;
+
+  //Generate random value min 0 and max 2
+  function randValue (maxVal, minVal){
+    return Math.random() * (maxVal ) + minVal;
+  }
 
     // create bricks
   function createBrick(brickxPos, brickYPos, brickWidth, brickHeight) {
@@ -171,6 +177,7 @@ window.onload = function() {
       ctx.fillText("Timer " + timer, canvas.width/2 - 50, canvas.height/2 +70);
       drawBricks();
       drawBall();
+      //TODO make the paddle smaller as takes longer
       drawPaddle();
       collisionDetect();
       displayScore();
@@ -182,13 +189,17 @@ window.onload = function() {
         // with the centre of the ball we calculate with its
         //circumference, so that ball bounce right after it touches the
         //wall
-        ballSpeedX = -ballSpeedX;
+        //make the ball goes random ways to make the user difficult to play
+        ballSpeedX = -ballSpeedX * randValue(0.2,0.8);
         //bounce the ball in opposite direction
+
       }
       //if the ball move out of the canvas up
       if (ballY + ballSpeedY - ballRadius< 0) {
         // move to the opposite direction
         ballSpeedY = -ballSpeedY;
+        ballSpeedX = -ballSpeedX * randValue(0.1,0.8);
+
       }
       //  else if (ballY + ballRadius >= canvas.height) { //check if the ball has made
         // (ballY + ballSpeedY > canvas.height - paddleHeight - ballRadius)
@@ -215,12 +226,12 @@ window.onload = function() {
           if(  ballY + ballRadius >= (canvas.height - paddleHeight) +5){
 
                 ballSpeedX= -ballSpeedX;
+                // ballSpeedY = -ballSpeedY;
           }
 
-          // TODO make sure that ball goes to different direction when came in
-          // contact with the paddle
-          //  var deltax = ballX - paddleX + paddleWidth /2;
-          //  ballSpeedX = deltax * 0.25;
+          //direction of the ball depends on where you ball hits the paddle
+            var deltaX = ballX - (paddleX + paddleWidth / 2);
+              ballSpeedX = deltaX * 0.25;
         }else if(ballY + ballRadius >= canvas.height){
            clearInterval(timeTracker);
           //ball went down outside of the canvas
@@ -383,7 +394,8 @@ window.onload = function() {
             // move ball to opposite direction after it came in contact with the
             //brick
             ballSpeedY = -ballSpeedY;
-            ballSpeedX = -ballSpeedX ;
+            //random movement
+            ballSpeedX = -ballSpeedX * randValue(0.1,0.8);
             brick.status = 0;
             //make the impact change the status to 0
             noBrickLeft(score);
@@ -392,6 +404,14 @@ window.onload = function() {
         }
       }
     }
+  }
+  //smaller paddle
+  function shrinkPaddle(){
+    ctx.clearRect(paddleX - 3,(canvas.height - paddleHeight )- 3,(paddleWidth + 5),paddleHeight + 5);
+    console.log("paddleWidth " + paddleWidth);
+    paddleWidth = paddleWidth - 2;
+    console.log("paddleWidth " + paddleWidth);
+    drawPaddle();
   }
 
     //all bricks gone
